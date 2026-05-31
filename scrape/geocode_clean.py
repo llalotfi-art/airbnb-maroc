@@ -67,6 +67,14 @@ def process_city(name, cfg):
     if listings.empty:
         return None
 
+    # Qualité minimale : note > 4 et au moins 15 avis
+    before = len(listings)
+    listings = listings[(listings["rating"] > 4) & (listings["review_count"] > 15)]
+    print(f"  filtre qualité : {before} → {len(listings)} annonces "
+          f"(rating>4 & reviews>15)")
+    if listings.empty:
+        return None
+
     quartiers = load_quartiers(quartiers_path(ROOT, cfg["slug"]))
     listings["quartier"] = [assign_quartier(la, lo, quartiers)
                             for la, lo in zip(listings["lat"], listings["lng"])]

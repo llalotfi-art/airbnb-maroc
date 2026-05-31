@@ -77,7 +77,8 @@ axs.set_title("Saisonnalité des prix/nuit (12 mois)", fontsize=12, weight="bold
 axs.set_ylabel("MAD / nuit"); axs.tick_params(axis="x", rotation=45)
 axs.grid(alpha=0.3); axs.legend(fontsize=8, ncol=2)
 
-fig.suptitle("Carte de prix Airbnb · Casablanca  —  4 128 annonces, 12 mois",
+n_listings = df[df.city == "Casablanca"]["room_id"].nunique() if "city" in df.columns else df["room_id"].nunique()
+fig.suptitle(f"Carte de prix Airbnb · Casablanca  —  {n_listings:,} annonces, 12 mois",
              fontsize=14, weight="bold")
 fig.tight_layout(rect=[0, 0, 1, 0.97])
 fig.savefig(OUT, dpi=130, bbox_inches="tight")
