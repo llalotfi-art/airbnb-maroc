@@ -15,6 +15,7 @@ scrape/fetch_neighborhoods.py Frontières OSM d'une ville (--city)
 scrape/build_quartiers.py    Extrait les quartiers d'une ville (--city)
 scrape/geocode_clean.py      GPS->quartier + nettoyage, multi-villes -> clean.csv
 scrape/make_preview.py       Aperçu PNG statique
+scrape/make_dashboard.py     Dashboard HTML standalone (données réelles)
 app.py                       Dashboard Streamlit (sélecteur de ville)
 ```
 
@@ -39,7 +40,13 @@ Pour une **nouvelle** ville : ajouter son entrée (bbox/grille) dans `scrape/cit
 ## Lancer le dashboard
 
 ```bash
+# Dashboard Streamlit (interactif, données live)
 ./.venv/bin/streamlit run app.py
+
+# Dashboard HTML standalone (export statique, ouvrir dans le navigateur)
+./.venv/bin/python scrape/make_dashboard.py              # ville auto (la + fournie)
+./.venv/bin/python scrape/make_dashboard.py Casablanca   # ville explicite
+# → docs/dashboard.html
 ```
 
 ## Déploiement (Streamlit Community Cloud)

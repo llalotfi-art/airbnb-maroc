@@ -20,3 +20,6 @@ data/clean.csv
 
 # Le dashboard déployé a besoin de :
 #   data/clean.csv.gz  et  data/*_quartiers.geojson  -> CONSERVÉS (pas ignorés)
+
+# Dashboard HTML généré (artifact de build — régénérer avec make_dashboard.py)
+docs/dashboard.html
