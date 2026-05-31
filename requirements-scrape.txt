@@ -1,0 +1,8 @@
+# Dépendances du PIPELINE de collecte/traitement (en plus de requirements.txt).
+# Installation locale complète :
+#   pip install -r requirements.txt -r requirements-scrape.txt
+pyairbnb==2.2.1
+shapely==2.1.2
+requests==2.34.2
+osm2geojson==0.3.2
+matplotlib==3.10.9

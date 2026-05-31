@@ -1,0 +1,22 @@
+# Environnement
+.venv/
+__pycache__/
+*.pyc
+
+# Secrets (NE JAMAIS committer)
+.streamlit/secrets.toml
+
+# Données lourdes / intermédiaires (non nécessaires au dashboard déployé)
+data/*.db
+data/*_admin_raw.geojson
+data/recon_*.json
+data/*.log
+
+# OS
+.DS_Store
+
+# Le CSV brut (lourd) est exclu ; le .gz (8 Mo) est conservé
+data/clean.csv
+
+# Le dashboard déployé a besoin de :
+#   data/clean.csv.gz  et  data/*_quartiers.geojson  -> CONSERVÉS (pas ignorés)
